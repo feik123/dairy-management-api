@@ -6,4 +6,19 @@ from accounts.models import CustomUser
 
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
-    pass
+    list_display = (
+        'username',
+        'email',
+        'role',
+        'phone',
+        'is_active',
+        'created_at',
+    )
+
+    list_filter = (
+        'role',
+        'is_active',
+        'is_staff',
+        'is_superuser',
+    )
+
