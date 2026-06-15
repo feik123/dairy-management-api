@@ -13,6 +13,12 @@ class CustomUser(AbstractUser):
         choices=UserRole.choices,
         default=UserRole.CUSTOMER
     )
+    phone = models.CharField(
+        max_length=10,
+        blank=True
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
 
     @property
     def is_owner(self):
