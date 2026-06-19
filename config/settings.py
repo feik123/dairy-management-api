@@ -32,7 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 PROJECT_APS = [
     'accounts',
-
+    'farm',
+    'products',
+    'customers',
+    'orders',
 ]
 
 INSTALLED_APPS = [
