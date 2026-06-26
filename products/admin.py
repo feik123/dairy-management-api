@@ -9,9 +9,9 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'price',
         'unit',
-        'is_active'
+        'is_active',
     )
 
     search_fields = (
-        'name'
+        'name',
     )

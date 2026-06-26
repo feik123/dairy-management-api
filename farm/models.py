@@ -16,6 +16,9 @@ class Farm(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 
 class MilkCollection(models.Model):
     farm = models.ForeignKey(
@@ -33,6 +36,9 @@ class MilkCollection(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'Collected milk on {self.collection_date} from {self.farm.name}'
+
 
 class FarmPayment(models.Model):
     farm = models.ForeignKey(
@@ -49,4 +55,7 @@ class FarmPayment(models.Model):
     payment_date = models.DateField()
 
     notes = models.TextField(blank=True)
+
+    def __str__(self):
+        return f'Payment for {self.farm.name} on {self.payment_date}'
 

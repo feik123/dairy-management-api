@@ -22,7 +22,7 @@ class MilkCollectionAdmin(admin.ModelAdmin):
     list_display = (
         'farm',
         'collection_date',
-        'quantity_liters'
+        'quantity_liters',
     )
 
     list_filter = (
@@ -35,5 +35,5 @@ class FarmPaymentAdmin(admin.ModelAdmin):
     list_display = (
         'farm',
         'payment_date',
-        'amount'
+        'amount',
     )

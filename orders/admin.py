@@ -9,11 +9,11 @@ class OrderAdmin(admin.ModelAdmin):
         'id',
         'customer',
         'order_date',
-        'status'
+        'status',
     )
 
     list_filter = (
-        'status'
+        'status',
     )
 
 
