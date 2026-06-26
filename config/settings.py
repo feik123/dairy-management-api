@@ -36,6 +36,7 @@ PROJECT_APS = [
     'products',
     'customers',
     'orders',
+    'rest_framework',
 ]
 
 INSTALLED_APPS = [
