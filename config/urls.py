@@ -9,5 +9,5 @@ def home(request):
 urlpatterns = [
     path('', home),
     path('admin/', admin.site.urls),
-    path('api/', include('farm.urls'))
+    path('api/', include('farm.urls')),
 ]
