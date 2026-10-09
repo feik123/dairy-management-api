@@ -22,3 +22,14 @@ class CustomUserAdmin(UserAdmin):
         'is_superuser',
     )
 
+    fieldsets = UserAdmin.fieldsets + (
+        ('Business information', {
+            'fields': ('role', 'phone'),
+        }),
+    )
+
+    add_fieldsets = UserAdmin.add_fieldsets + (
+        ('Business information', {
+            'fields': ('role', 'phone'),
+        }),
+    )
