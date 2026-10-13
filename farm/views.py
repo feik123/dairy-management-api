@@ -2,13 +2,13 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Farm, MilkCollection, FarmPayment
-from .permissions import IsOwnerOrFarmUser
+from .permissions import IsOwnerForFarmWrite
 from .serializers import FarmSerializer, MilkCollectionSerializer, FarmPaymentSerializer
 
 
 class FarmViewSet(viewsets.ModelViewSet):
     serializer_class = FarmSerializer
-    permission_classes = [IsOwnerOrFarmUser]
+    permission_classes = [IsOwnerForFarmWrite]
 
     def get_queryset(self):
         user = self.request.user
