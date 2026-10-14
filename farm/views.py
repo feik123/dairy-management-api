@@ -19,12 +19,26 @@ class FarmViewSet(viewsets.ModelViewSet):
         return Farm.objects.filter(user=user)
 
 class MilkCollectionViewSet(viewsets.ModelViewSet):
-    queryset = MilkCollection.objects.all()
     serializer_class = MilkCollectionSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsOwnerForFarmWrite]
+
+    def get_queryset(self):
+        user = self.request.user
+
+        if user.role == 'OWNER':
+            return MilkCollection.objects.all()
+
+        return MilkCollection.objects.filter(farm__user=user)
 
 
 class FarmPaymentViewSet(viewsets.ModelViewSet):
-    queryset = FarmPayment.objects.all()
     serializer_class = FarmPaymentSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsOwnerForFarmWrite]
+
+    def get_queryset(self):
+        user = self.request.user
+
+        if user.role == "OWNER":
+            return FarmPayment.objects.all()
+
+        return FarmPayment.objects.filter(farm__user=user)
