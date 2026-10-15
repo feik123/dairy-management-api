@@ -19,7 +19,7 @@ class FarmSerializer(serializers.ModelSerializer):
                 'A farm can only be assigned to a user with FARM role'
             )
 
-        elif user is not None and user != self.instance.user:
+        elif self.instance is not None and user != self.instance.user:
             raise serializers.ValidationError(
                 "The farm's user cannot be changed"
             )
