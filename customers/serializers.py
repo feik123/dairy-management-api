@@ -65,3 +65,16 @@ class CustomerRegistrationSerializer(serializers.ModelSerializer):
 
         return customer
 
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = [
+            'id',
+            'name',
+            'customer_type',
+            'phone_number',
+            'address',
+            'is_active',
+            'user',
+        ]
+        read_only_fields = ['id']
